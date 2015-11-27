@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>News</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+<link rel="" href="css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+{{22/2}}
+manoj
+<div id="pageWrap">
+		<!--<div class="pageOverLay"></div>-->
+		<div class="topBar">
+			<h1>
+				KhabariLal
+			</h1>
+		<nav class="navbar navbar-default">
+	  		<div class="container-fluid">   
+			    <div class="navbar-header col-md-1">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <img class="navbar-brand" src="image/TechM_new_logo.png"></img>
+			    </div>    
+			   	<div class="collapse navbar-collapse col-xs-11" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+				        <li class="active"><a href="#/home" class="glyphicon glyphicon-user">Home</a></li>
+				        <li class={{}}><a href="#/aboutUs" class="glyphicon glyphicon-user">AboutUs</a></li>
+				        <li class={{}}><a href="#/helpline" class="glyphicon glyphicon-question-sign">Helpline</a></li>
+				        <li class={{}}><a href="#/feedBack" class="glyphicon glyphicon-retweet">Feedback</a></li>
+				        <li class={{}}><a href="#/Share"class="glyphicon glyphicon-share">Share</a></li>
+				      </ul>	      	     
+			    </div> 
+	  		</div>
+		</nav>				
+		</div>
+		<div ng-controller="myAppCtrl">
+		<div ng-view=""></div>
+		{{message}}	
+	</div>					
+	</div>	
+	
+	
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="js/appCtrl.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+  
+  var winH = $( window ).height() - 70;
+  var winW = $( window ).width();
+  $('#pageWrap').css('height', winH);
+  $('.middleContent').css('height', winH - 70);
+  
+  $('#toggleOn').click(function(){
+	$('#leftNav').show();
+	$('#toggleOff').show();
+	$('#toggleOn').hide();
+});
+$('#toggleOff').click(function(){
+	$('#leftNav').hide();
+	$('#toggleOn').show();
+	$('#toggleOff').hide();
+});
+ }); 
+ 
+ myApp.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/Share', {
+        templateUrl: 'partials/share.html',        
+      }).
+      when('/home', {
+        templateUrl: 'partials/home.html',        
+      }).
+      otherwise({
+        redirectTo: '/home'
+      });
+  }]);
+</script>
+</html>
